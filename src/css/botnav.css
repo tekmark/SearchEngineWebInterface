@@ -1,0 +1,16 @@
+div.navigation {
+    border : 1px solid gray;
+    /*font-size: 12px;*/
+    /*font-family: "Open Sans", "DejaVu Sans", sans-serif;*/
+}
+
+div.navigation li {
+    width : 20px;
+}
+
+div.navigation a {
+
+}
+
+
+

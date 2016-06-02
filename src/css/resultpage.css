@@ -1,0 +1,136 @@
+body {
+    margin: 0px;
+}
+div.container {
+    margin: 0;
+    border: 1px solid gray;
+}
+
+div.search {
+    margin: 0;
+    width: auto;
+    padding: 5px 10px 5px 10px;
+    background-color: #F1EFEF;
+    /*margin-left:auto;*/
+    /*border: 1px solid gray;*/
+}
+div.search form {
+    margin: 5px;
+}
+
+.debug {
+    width: 100%;
+    /*border : 1px solid gray;*/
+}
+
+div.results {
+    width: 650px;
+    border: 1px solid gray;
+}
+
+div.search input[type=text] {
+    /*width: 75%;*/
+    /*max-width: 750px;*/
+    min-width: 550px;
+    height : 50px ;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: white;
+    /*background-image: url('searchicon.png');*/
+    background-position: 10px 10px;
+    /*background-repeat: no-repeat;*/
+    padding: 6px 20px 6px 20px;
+    display: inline;
+}
+div.search input[type=submit]{
+    /*background-color: #4CAF50;*/
+    border: none;
+    color: black;
+    padding: 12px 24px 12px 24px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 14px;
+    font-style: italic;
+    display: inline;
+}
+
+hr {
+    margin-left: 0px;
+    width: 750px;
+}
+
+a {
+    text-decoration: none;
+    /*font-weight:bold;	*/
+    font-size: 20px;
+    font-family:sans-serif;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+div.result_block {
+    max-width : 100%;
+    /*width: 75%; */
+    /*border: 1px solid gray;*/
+    padding: 12px;
+}
+
+div.result_title {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+div.result_url {
+    white-space: nowrap;
+    width: 100%;
+    font-size: 12px;
+    font-family: monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.result_content {
+    width: 100%;
+    font-size: 14px;
+    /*border : 1px solid gray;*/
+    font-family: sans-serif;
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.navigation {
+    border : 1px solid gray;
+    width: 650px;
+    /*font-size: 12px;*/
+    /*font-family: "Open Sans", "DejaVu Sans", sans-serif;*/
+}
+
+div.navigation ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 5px;
+    margin: 5px 0px 5px 0px;
+}
+
+div.navigation ul li {
+    width :auto;
+    display: inline-block;
+    text-align: center;
+    margin: 0 5px 0 5px;
+}
+
+div.navigation a {
+    text-decoration: none;
+    font-size: 12px;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+}
+
+div.navigation a:hover {
+    text-decoration: underline;
+}

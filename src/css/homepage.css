@@ -1,0 +1,43 @@
+body {
+    /*background-color: #d0e4fe;*/
+}
+
+h1 {
+    color: orange;
+    text-align: center;
+}
+input[type=text] {
+    width:75%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    /*TODO: find a search icon, and place it under img folder*/
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    /*background-color: #4CAF50;*/
+    border: none;
+    color: black;
+    /*padding: 16px 32px;*/
+    padding: 12px 24px 12px 24px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 14px;
+    font-style: italic;
+}
+div {
+    width: 550px;
+    padding: 10px;
+    margin:auto;
+    /*margin-left:auto;*/
+    /*border: 5px solid gray;*/
+}
+span {
+    color: red;
+}
