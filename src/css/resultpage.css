@@ -1,6 +1,7 @@
 body {
-    margin: 0px;
+    margin: 0;
     height: 100%;
+    width: 100%;
 }
 div#container {
     margin: 0;
@@ -15,6 +16,7 @@ div#top {
     background-color: #F1EFEF;
     display: inline-flex;
 }
+
 
 div#image_holder {
     min-width : 80px;
@@ -84,12 +86,50 @@ input:focus#search_text_box {
     border-radius: 0 4px 4px 0;
 }
 
+div#main-container {
+    display: table;
+    border: 1px solid gray;
+}
+
+div#extra {
+    max-width: 200px;
+    /*margin: 20px 5px 5px 5px;*/
+    border: 1px solid gray;
+    padding: 5px;
+    font-family: "andale mono", "monotype.com", "courier new", courier, monospace;
+    font-size: x-small;
+}
+
+div#information {
+    width: 700px;
+    border: 1px solid gray;
+    font-family: "andale mono", "monotype.com", "courier new", courier, monospace;
+    font-size: x-small;
+}
+
+
+div.left {
+    padding-left: 80px;
+    display: table-cell;
+}
+
+div.right {
+    display: table-cell;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+div#options {
+    border: 1px solid gray;
+    margin: 0;
+}
 
 div#results {
     width: 700px;
     border: 1px solid gray;
-    padding: 5px 5px 5px 80px;
-    margin-bottom: 20px;
+    padding: 5px;
+    /*background-color: gainsboro;*/
+    /*margin-bottom: 20px;*/
 }
 
 div#records {
@@ -160,6 +200,21 @@ div.result_content {
     text-overflow: ellipsis;
 }
 
+div.result_content ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: darkslategray;
+    font-size: medium;
+    font-family: "Consolas", "Menlo", "Courier", monospace;
+}
+
+div.result_content ul li {
+    display: inline-block;
+}
+
+
+
 div#pagination {
     border : 1px solid gray;
     padding : 10px 0px 0px 0px;
@@ -194,7 +249,6 @@ div#pagination a {
 div#pagination a:hover {
     text-decoration: underline;
 }
-
 
 div#footer {
     /*keep the footer at the bottom of page*/

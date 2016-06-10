@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" type="text/css" href="css/resultpage.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -143,26 +145,88 @@
     //                echo "Debug:  # of records: ".$results->size()."<br>";
     //print_results_test($array);
     ?>
+    <div id = "main-container">
 
-    <div id="results">
-        <div id="info">
-            
+        <div class="left">
+<!--            <div id="interaction">-->
+<!--                <div id="buttons">-->
+<!--                    <button type="button" class="btn btn-default" id = "get-crawldb-stats">crawldb_stats</button>-->
+<!--                </div>-->
+<!--                <div id="information">-->
+<!--                    <script>-->
+<!--                        $('button#get-crawldb-stats').click(function () {-->
+<!--                            console.log("get_crawldb_stats Onclick()");-->
+<!--                            $.ajax({-->
+<!--                                url: 'php/getdbstats.php',-->
+<!--                                type: 'GET',-->
+<!--                                beforeSend : function () {-->
+<!--                                    console.log("Loading...");-->
+<!--                                    $('div#information').html("<img src='img/loading-default.gif' />");-->
+<!--                                },-->
+<!--                                success: function(data) {-->
+<!--                                    console.log("Get db status: " + data);-->
+<!--                                    $('div#information').html(data);-->
+<!--//                                    .collapse('show');-->
+<!--                                }-->
+<!--                            })-->
+<!--                        })-->
+<!--//                    </script>-->
+<!--//                </div>-->
+<!--//            </div>-->
+            <div id="results">
+                <div id="info">
+
+                </div>
+                <div id="records">
+
+                </div>
+                <div id="pagination">
+                    <ul id="nav"></ul>
+                </div>
+            </div>
         </div>
-        <div id="records">
 
-        </div>
-        <div id="pagination">
-            <ul id="nav">
-
-            </ul>
+        <div class="right">
+            <div id="options">
+                <button type="button" id = "get-db-stats" value="db status" data-toggle="collapse" data-target="#extra">
+                    db_status
+                </button>
+            </div>
+            <div id="extra">
+                <script>
+                    $('button#get-db-stats').click(function () {
+                        console.log("get_db_stats Onclick()");
+                        $.ajax({
+                            url: 'php/getdbstats.php',
+                            type: 'GET',
+                            beforeSend : function () {
+                                console.log("Loading...");
+                                $('div#extra').html("<img src='img/loading-default.gif' />");
+                            },
+                            success: function(data) {
+                                console.log("Get db status: " + data);
+                                $('div#extra').html(data);
+//                                    .collapse('show');
+                            }
+                        })
+                    })
+                </script>
+<!--                Show Extra Infomation here.-->
+            </div>
         </div>
     </div>
-
+    <div id="footer">
+        This page is developed by Chao Han.
+        Contact: <a href="mailto:helloworld.c@icloud.com">helloworld.c@icloud.com</a>
+    </div>
+</div>
+    
     <script>
         //parse results object.
         var time = <?php echo $obj->getEclipsedTime(); ?>;
         var total_hits = <?php echo $obj->getTotalNumberOfHits(); ?>;
-        var slice = <?php echo $obj->getRecordsJSON(); ?>;
+        var slice = <?php echo $obj->getRecordsJSON();
+            $log->debug($obj->getRecordsJSON())?>;
         var records_per_page = <?php echo $results_per_page; ?>;
         var start = <?php echo $start; ?>;
 
@@ -184,13 +248,18 @@
         }
 
         function getRecordHtmlBlock(record) {
+            var moreBtn = "<button type = \"button\" data-toggle=\"collapse\">more</Button>";
+            var content = "<ul>" + moreBtn +
+                "<li> url score: " + record.score.toFixed(4) + "</li> <li>Revelance:" + record.relevance.toFixed(4) + "</li>"
+                +"</ul>";
+
             var rechtml =
                 "<div class=\"result_block\"> " +
                 "<div class=\"result_title\">" +
                 "<a href=" + record.url + ">" + record.title + "</a>" +
                 "</div>" +
                 "<div class=\"result_url\">" + record.url + "</div>" +
-                "<div class=\"result_content\">"  + "dummy content" + "</div>" +
+                "<div class=\"result_content\">"  + content + "</div>" +
                 "</div>";
             return rechtml;
         }
@@ -302,13 +371,6 @@
                 ajaxCall(start, 10);
             }
             //-->
-        </script>
-
-
-    <div id="footer">
-        This page is developed by Chao Han.
-        Contact: <a href="mailto:helloworld.c@icloud.com">helloworld.c@icloud.com</a>
-    </div>
-</div>
+    </script>
 </body>
 </html>

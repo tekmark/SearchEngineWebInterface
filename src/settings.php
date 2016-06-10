@@ -6,7 +6,9 @@
  * Time: 1:29 PM
  */
 
-define('DB_LOCATION', '/Users/chaohan/git/SearchEngine/abcd/');
+//define('DB_LOCATION', '/Users/chaohan/git/SearchEngine/test/');
+
+define('DB_LOCATION', '/Users/chaohan/git/SearchEngine/06062016');
 
 define('DEFAULT_RECORDS_PER_PAGE', 10);
 define('MAX_RECORDS_PER_PAGE', 30);

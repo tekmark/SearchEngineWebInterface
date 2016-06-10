@@ -41,10 +41,18 @@ class QueryResultsObj {
             $record = $this->records[$i];
             $url=java_values($record->getUrl());
             $title=java_values($record->getTitle());
+            $score = java_values($record->getUrlScore());
+            $relevance = java_values($record->getLuceneScore());
+            $inlink = java_values($record->getInlink());
+            $outlink = java_values($record->getOutlink());
             $record_json = array (
                 "recno" => $i,
                 "url" => $url,
-                "title" => $title
+                "title" => $title,
+                "score" => $score,
+                "relevance" => $relevance,
+                "inlink" => $inlink,
+                "outlink" => $outlink
             );
             array_push($array_json, $record_json);
         }
