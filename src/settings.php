@@ -9,6 +9,8 @@
 //define('DB_LOCATION', '/Users/chaohan/git/SearchEngine/test/');
 
 define('DB_LOCATION', '/Users/chaohan/git/SearchEngine/06062016');
+define('NUTCH_BASE', '/Volumes/MySeagateDisk/nutch/');
+define('JAVA_HOME', '/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home');
 
 define('DEFAULT_RECORDS_PER_PAGE', 10);
 define('MAX_RECORDS_PER_PAGE', 30);

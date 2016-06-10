@@ -76,8 +76,7 @@ input:focus#search_text_box {
 /*}*/
 
 #search_btn {
-    background-color: white;
-    background-image: url(/src/img/web-search-48.ico);
+    background: white url(../img/web-search-48.ico);
     width: 48px;
     height: 48px;
     margin: 0;
@@ -89,6 +88,7 @@ input:focus#search_text_box {
 div#main-container {
     display: table;
     border: 1px solid gray;
+    margin-bottom: 30px;
 }
 
 div#extra {
@@ -252,6 +252,7 @@ div#pagination a:hover {
 
 div#footer {
     /*keep the footer at the bottom of page*/
+    height: 30px;
     position: absolute;
     right: 0;
     bottom: 0;

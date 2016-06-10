@@ -216,7 +216,7 @@
         </div>
     </div>
     <div id="footer">
-        This page is developed by Chao Han.
+        This page is developed by <a href="http://github.com/tekmark">Chao Han</a>.
         Contact: <a href="mailto:helloworld.c@icloud.com">helloworld.c@icloud.com</a>
     </div>
 </div>
@@ -248,8 +248,8 @@
         }
 
         function getRecordHtmlBlock(record) {
-            var moreBtn = "<button type = \"button\" data-toggle=\"collapse\">more</Button>";
-            var content = "<ul>" + moreBtn +
+//            var moreBtn = "<button type = \"button\" data-toggle=\"collapse\">more</Button>";
+            var content = "<ul>" +
                 "<li> url score: " + record.score.toFixed(4) + "</li> <li>Revelance:" + record.relevance.toFixed(4) + "</li>"
                 +"</ul>";
 
@@ -340,36 +340,6 @@
             }
 
             var parameters = parseQueryString(url);
-
-            function requestResultSlice(start, length) {
-                console.log("request " + length + " records starting from " + start);
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        document.getElementById("jsdummy").innerHTML = xmlhttp.responseText;
-                    }
-                };
-                xmlhttp.open("GET", "ajaxtest.php?page=" + start, true);
-                xmlhttp.send();
-            }
-            function ajaxCall(start, length) {
-                console.log("ajax call" + start);
-                $.ajax({
-                    url: 'query.php',
-                    type: 'get',
-                    data: { "start": start},
-                    success: function(response) {
-                        console.log("success");
-                        console.log(response); },
-                    dataType: 'json'
-                });
-            }
-            function  getPageX(page) {
-                console.log("request page #" + page);
-                //document.getElementById("results").innerHTML = "get" + page;
-                var start = (page - 1) * 10;
-                ajaxCall(start, 10);
-            }
             //-->
     </script>
 </body>
