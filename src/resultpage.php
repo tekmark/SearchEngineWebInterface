@@ -324,11 +324,13 @@
                 return href;
             }
 
-            document.getElementById("nav").innerHTML = getPaginationHtml("rutgers", start, total_hits);
+
+
 
             var url = window.location.search.substring(1);
             console.log("Current url: " + url);
-
+            var parameters = parseQueryString(url);
+            document.getElementById("nav").innerHTML = getPaginationHtml(parameters['query'], start, total_hits);
             function parseQueryString (queryString) {
                 var params = {}, queries, temp, i, l;
 
@@ -342,8 +344,6 @@
                 }
                 return params;
             }
-
-            var parameters = parseQueryString(url);
             //-->
     </script>
 </body>
