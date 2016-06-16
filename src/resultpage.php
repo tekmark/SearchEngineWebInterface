@@ -46,10 +46,13 @@
         $search_str=$_REQUEST[ARG_QUERY];
 
         if (!empty($search_str)) {
-            $log->info("Query String: " . $search_str . ", Start: " . $start . ", # of records: " . $results_per_page);
+
             $results = get_search_results_slice($search_str, $start, $results_per_page, $absolute_db_dir_path);
             if (!empty($results)) {
                 $obj = new QueryResultsObj($results);
+                $time = $obj->getEclipsedTimeMilliSec();
+                $totalHits = $obj->getTotalNumberOfHits();
+                $log->info("Query: ".$search_str.", found ".$totalHits." hits in ".$time." milliseconds. records from: " . $start . " records/page: " . $results_per_page);
                 //$obj->dump();
             } else {
                 $log->error("Query String: ".$search_str);
@@ -219,20 +222,25 @@
     
     <script>
         //parse results object.
-        var time = <?php echo $obj->getEclipsedTime(); ?>;
+        var total_time = <?php echo $obj->getEclipsedTimeMilliSec(); ?>;
+        var searching_time = <?php echo $obj->getSearchingTimeMilliSec(); ?>;
+        var ranking_time = <?php echo $obj->getRankingTimeMilliSec(); ?>;
         var total_hits = <?php echo $obj->getTotalNumberOfHits(); ?>;
         var slice = <?php echo $obj->getRecordsJSON();
             $log->debug($obj->getRecordsJSON())?>;
         var records_per_page = <?php echo $results_per_page; ?>;
         var start = <?php echo $start; ?>;
 
-        function printResultInfo(eclipsed_time, number_of_hits) {
-            console.log("msec: " + eclipsed_time/1000000 + ", # of total hits: " + number_of_hits);
-            var infohtml = number_of_hits + " results (" + eclipsed_time/1000000 + " milliseconds)";
+        function printResultInfo(eclipsed_time_msec, number_of_hits, searching_time_msec, ranking_time_msec) {
+            console.log("total time: " + eclipsed_time_msec + ", # of total hits: " + number_of_hits);
+            console.log("searching time " + searching_time_msec, ", ranking time: " + ranking_time_msec);
+//            var infohtml = number_of_hits + " results (" + eclipsed_time_msec + " milliseconds, searching: "
+//                + searching_time_msec + " milliseconds, ranking: " + ranking_time_msec + " milliseconds)";
+            var infohtml = number_of_hits + " results (" + eclipsed_time_msec + " milliseconds)";
             document.getElementById("info").innerHTML = infohtml;
         }
 
-        window.onload = printResultInfo(time, total_hits);
+        window.onload = printResultInfo(total_time, total_hits, searching_time, ranking_time);
         
         window.onload = getResultsSlice(slice);
         
@@ -296,7 +304,7 @@
                     entry="<li><a href = \"" + href + "\">" + i + "</a></li>";
                     html += entry;
                     ++i;
-                    console.log(entry);
+//                    console.log(entry);
                 }
 
                 if (current_page_number < total_number_of_pages) {

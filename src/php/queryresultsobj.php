@@ -10,9 +10,13 @@ class QueryResultsObj {
     var $records;
     var $eclipsed_time_msec;
     var $start;
+    var $searching_time_msec;
+    var $ranking_time_msec;
     function __construct($results_obj) {
         $this->total_number_of_hits = java_values($results_obj->getTotalNumberOfHits());
-        $this->eclipsed_time = java_values($results_obj->getEclipsedTime());
+        $this->eclipsed_time_msec = java_values($results_obj->getEclipsedTimeMilliSec());
+        $this->searching_time_msec = java_values($results_obj->getSearchingTimeMilliSec());
+        $this->ranking_time_msec = java_values($results_obj->getRankingTimeMilliSec());
 //            $this->start = java_values($results_obj->getStart());
         $this->records = java_values($results_obj->getRecords());
     }
@@ -29,9 +33,17 @@ class QueryResultsObj {
         return $this->records;
     }
 
-    function getEclipsedTime() {
-        return $this->eclipsed_time;
+    function getEclipsedTimeMilliSec() {
+        return $this->eclipsed_time_msec;
     }
+
+    function getSearchingTimeMilliSec() {
+        return $this->searching_time_msec;
+    }
+    function getRankingTimeMilliSec() {
+        return $this->ranking_time_msec;
+    }
+
 
     function getRecordsJSON() {
         $array_json = array();
@@ -62,7 +74,7 @@ class QueryResultsObj {
     function dump() {
         echo $this->total_number_of_hits;
         echo "<br>";
-        echo $this->eclipsed_time;
+        echo $this->eclipsed_time_msec;
         echo "<br>";
         echo count($this->records);
         echo "<br>";
