@@ -186,7 +186,7 @@
                         var host = window.location.host;
                         host += ":28778";
                         console.log("Open url: " + host);
-                        window.open('http://127.0.0.1:28778');
+                        window.open(host);
                     });
 
                     $('button#nagios').click(function () {
