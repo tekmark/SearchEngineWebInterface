@@ -124,6 +124,8 @@
                 <!-- Searching and Ranking Options can be added bellow search box -->
             </form>
         </div>
+<!--        <div id="buttons">-->
+<!--        </div>-->
         <script>
             function hasInput() {
                 var x;
@@ -146,33 +148,15 @@
     //print_results_test($array);
     ?>
     <div id = "main-container">
-
+<!--        <div id="button-frame">-->
+<!--        </div>-->
+<!--        <div>-->
         <div class="left">
-<!--            <div id="interaction">-->
-<!--                <div id="buttons">-->
-<!--                    <button type="button" class="btn btn-default" id = "get-crawldb-stats">crawldb_stats</button>-->
-<!--                </div>-->
-<!--                <div id="information">-->
-<!--                    <script>-->
-<!--                        $('button#get-crawldb-stats').click(function () {-->
-<!--                            console.log("get_crawldb_stats Onclick()");-->
-<!--                            $.ajax({-->
-<!--                                url: 'php/getdbstats.php',-->
-<!--                                type: 'GET',-->
-<!--                                beforeSend : function () {-->
-<!--                                    console.log("Loading...");-->
-<!--                                    $('div#information').html("<img src='img/loading-default.gif' />");-->
-<!--                                },-->
-<!--                                success: function(data) {-->
-<!--                                    console.log("Get db status: " + data);-->
-<!--                                    $('div#information').html(data);-->
-<!--//                                    .collapse('show');-->
-<!--                                }-->
-<!--                            })-->
-<!--                        })-->
-<!--//                    </script>-->
-<!--//                </div>-->
-<!--//            </div>-->
+            <div id="buttons">
+                <button type="button" class="btn btn-info" id = "get-crawldb-stats">crawldb_stats</button>
+                <button type="button" class="btn btn-info" id = "log-monitor" value="log monitor">log_monitor</button>
+                <button type="button" class="btn btn-info" id = "nagios" value="service_monitor">service_monitor</button>
+            </div>
             <div id="results">
                 <div id="info">
 
@@ -187,14 +171,26 @@
         </div>
 
         <div class="right">
-            <div id="options">
-                <button type="button" id = "get-db-stats" value="db status" data-toggle="collapse" data-target="#extra">
-                    db_status
-                </button>
-            </div>
+<!--            <div id="options">-->
+<!--                <button type="button" id = "get-db-stats" value="db status" data-toggle="collapse" data-target="#extra">-->
+<!--                    db_status-->
+<!--                </button>-->
+<!--            </div>-->
             <div id="extra">
                 <script>
-                    $('button#get-db-stats').click(function () {
+                    
+                    $('button#log-monitor').click(function () {
+                        var host = window.location.host;
+                        host += ":28778";
+                        console.log("Open url: " + host);
+                        window.open('http://127.0.0.1:28778');
+                    });
+
+                    $('button#nagios').click(function () {
+                        window.location="/nagios";
+                    });
+                    
+                    $('button#get-crawldb-stats').click(function () {
                         console.log("get_db_stats Onclick()");
                         $.ajax({
                             url: 'php/getdbstats.php',

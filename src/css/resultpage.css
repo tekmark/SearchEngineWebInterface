@@ -27,7 +27,7 @@ div#image_holder {
 div#search_box {
     margin: 0;
     width: auto;
-    min-width: 700px;
+    min-width: 650px;
     background-color: inherit;
     display: inline-block;
     /*padding: 5px 10px 5px 80px;*/
@@ -41,7 +41,7 @@ form#searchbox {
 
 
 input#search_text_box {
-    width: 650px;
+    width: 600px;
     height : 48px ;
     box-sizing: border-box;
     border: 1px solid #ccc;
@@ -86,13 +86,29 @@ input:focus#search_text_box {
 }
 
 div#main-container {
+    /*position: absolute;*/
+    /*left: 0;*/
     display: table;
     border: 1px solid gray;
     margin-bottom: 30px;
 }
 
+div#button-frame {
+    /*border: 1px solid gray;*/
+    width: 100%;
+    padding-left: 80px;
+}
+
+
+div#buttons {
+    min-width: 650px;
+    border: 1px solid gray;
+    display: inline-block;
+}
+
 div#extra {
     max-width: 200px;
+    /*min-height: 50px;*/
     /*margin: 20px 5px 5px 5px;*/
     border: 1px solid gray;
     padding: 5px;
@@ -109,6 +125,8 @@ div#information {
 
 
 div.left {
+    /*position: absolute;*/
+    left: 0;
     padding-left: 80px;
     display: table-cell;
 }
@@ -125,7 +143,7 @@ div#options {
 }
 
 div#results {
-    width: 700px;
+    width: 650px;
     border: 1px solid gray;
     padding: 5px;
     /*background-color: gainsboro;*/
@@ -214,10 +232,9 @@ div.result_content ul li {
 }
 
 
-
 div#pagination {
     border : 1px solid gray;
-    padding : 10px 0px 0px 0px;
+    padding : 10px 0 0 0;
     /*width: 650px;*/
     /*font-size: 12px;*/
     /*font-family: "Open Sans", "DejaVu Sans", sans-serif;*/
@@ -227,7 +244,7 @@ div#pagination ul {
     list-style-type: none;
     text-align: center;
     padding: 5px;
-    margin: 5px 0px 5px 0px;
+    margin: 5px 0 5px 0;
 }
 
 div#pagination ul li {

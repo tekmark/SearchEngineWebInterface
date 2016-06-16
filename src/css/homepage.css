@@ -14,10 +14,10 @@ input[type=text] {
     font-size: 16px;
     background-color: white;
     /*TODO: find a search icon, and place it under img folder*/
-    background-image: url('searchicon.png');
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    /*background-image: url('searchicon.png');*/
+    /*background-position: 10px 10px;*/
+    /*background-repeat: no-repeat;*/
+    padding: 12px 20px 12px 12px;
 }
 input[type=button], input[type=submit], input[type=reset] {
     /*background-color: #4CAF50;*/
@@ -31,6 +31,7 @@ input[type=button], input[type=submit], input[type=reset] {
     font-size: 14px;
     font-style: italic;
 }
+
 div {
     width: 550px;
     padding: 10px;

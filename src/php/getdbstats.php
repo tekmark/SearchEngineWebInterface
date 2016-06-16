@@ -10,7 +10,6 @@ include ('../settings.php');
 
 $log = Logger::getRootLogger();
 
-
 $cmd = "export JAVA_HOME=".JAVA_HOME." && cd ".NUTCH_BASE." && bin/nutch readdb crawl/crawldb/ -stats";
 $output = shell_exec($cmd);
 //echo "<p>".$output."</p>";
